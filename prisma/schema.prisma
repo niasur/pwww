@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Promo {
+  id                 String   @id @default(cuid())
+  title              String
+  description        String
+  startDate          String
+  endDate            String
+  isActive           Boolean  @default(true)
+  originalPrice      Int
+  discountedPrice    Int?
+  discountPercentage Int?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Booking {
+  id           String    @id @default(cuid())
+  name         String
+  phone        String
+  address      String
+  service      String
+  serviceName  String
+  date         String
+  time         String
+  notes        String?
+  status       String    @default("pending")
+  totalPrice   Int
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  cancelReason String?
+  cancelledAt  DateTime?
+}
+
+model Rating {
+  id           String   @id @default(cuid())
+  bookingId    String
+  customerName String
+  serviceName  String
+  rating       Int
+  comment      String
+  status       String   @default("pending")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
