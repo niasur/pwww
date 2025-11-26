@@ -1,0 +1,13 @@
+name = "my-worker"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[observability]
+enabled = true
+
+[build]
+command = "npm install"
+
+# MATIKAN TYPEGEN BIAR GA ERROR
+[experimental]
+disable_cf_typegen = true
