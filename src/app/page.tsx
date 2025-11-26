@@ -79,8 +79,7 @@ export default function Home() {
   ];
 
   const serviceAreas = [
-    'Jakarta Pusat', 'Jakarta Utara', 'Jakarta Selatan', 
-    'Jakarta Barat', 'Jakarta Timur', 'Tangerang Selatan', 'Kab. Tangerang'
+    'Jakarta Pusat', 'Jakarta Selatan', 'Jakarta Barat', 'Tangerang Kota', 'Tangerang Selatan', 'Kab. Tangerang'
   ];
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
@@ -269,17 +268,24 @@ export default function Home() {
         </div>
       )}
 
-      {/* Hero Section */}
+    {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-orange-400 to-pink-400 text-white">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <Badge className="mb-4 bg-white/20 hover:bg-white/30">
-                🐱 Jasa Mandi Kucing Panggilan
-              </Badge>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Kucing Bersih,<br/>Makin Lucu & Sehat
-              </h1>
+   
+    {/* Brand Logo */}
+    <div className="flex items-center mb-4">
+      <img src="/logobb.png" alt="WITHLUV Logo" className="h-12 w-auto" />
+      <h1 className="text-2xl md:text-3xl font-bold m-0 -ml-1 -mt-0.5">
+        WITHLUV
+        </h1>
+        </div>
+        
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          Kucing Bersih,<br/>Makin Lucu & Sehat
+          </h1>
+                  
               <p className="text-xl mb-8 text-white/90">
                 Layanan mandi kucing profesional di rumah Anda. 
                 Petugas datang ke lokasi, hasil memuaskan, bayar di tempat (COD)!
@@ -308,33 +314,51 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="hidden md:block">
-              <img 
-                src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500&h=400&fit=crop" 
-                alt="Cat Grooming"
-                className="rounded-lg shadow-2xl"
-              />
-            </div>
+            
+<div className="hidden md:flex justify-center">
+  <img 
+    src="/splash.png" 
+    alt="Splash" 
+    className="w-[500px] h-[400px] object-cover rounded-xl shadow-2xl"
+  />
+</div>
+
           </div>
         </div>
       </section>
 
-      {/* Service Areas */}
-      <section className="py-8 bg-white shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center gap-2 text-gray-600">
-            <MapPin className="h-5 w-5 text-orange-500" />
-            <span className="font-medium">Area Layanan:</span>
-            <div className="flex flex-wrap gap-2">
-              {serviceAreas.map((area, index) => (
-                <Badge key={index} variant="secondary" className="bg-orange-100 text-orange-700">
-                  {area}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+{/* Service & Business Areas */}
+<section className="py-8 bg-white shadow-sm">
+  <div className="container mx-auto px-4 flex flex-col items-center space-y-6 text-gray-600">
+
+    {/* Jam Operasional */}
+    <div className="flex flex-col items-center gap-2">
+      <div className="flex items-center gap-2">
+        <Clock className="h-6 w-6 text-orange-500" />
+        <span className="font-medium">Jam Operasional (Berlaku untuk Semua Cabang):</span>
+      </div>
+      <Badge variant="secondary" className="bg-orange-100 text-orange-700">
+        Setiap Hari     |     09.00 - 16.00
+      </Badge>
+    </div>
+
+    {/* Area Layanan */}
+    <div className="flex flex-col items-center gap-2">
+      <div className="flex items-center gap-2">
+        <MapPin className="h-6 w-6 text-orange-500" />
+        <span className="font-medium">Area Layanan:</span>
+      </div>
+      <div className="flex flex-wrap justify-center gap-2">
+        {serviceAreas.map((area, index) => (
+          <Badge key={index} variant="secondary" className="bg-orange-100 text-orange-700">
+            {area}
+          </Badge>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* Services Section */}
       <section className="py-16">
@@ -604,7 +628,7 @@ export default function Home() {
         
         {/* Instagram */}
         <a 
-          href="https://instagram.com" 
+          href="https://www.instagram.com/withluv.anabul" 
           target="_blank" 
           rel="noopener noreferrer"
           className="text-gray-600 hover:text-orange-500 transition"
